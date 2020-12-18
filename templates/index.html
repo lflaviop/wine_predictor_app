@@ -1,0 +1,68 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}
+Intelligent Sommelier
+{% endblock %}
+
+{% block content %}
+<div class="container">
+	<div class="page-header">
+		<h1>Wine Predictor App</h1>
+	</div>
+	<div class="page-body">
+		<form action="/" method="post" class="form">
+			{{ form.csrf_token }}
+			<div class="row">
+				<div class="col-md-8">
+					<div class="row">
+						<div class="form-group col-md-6">
+							{{ wtf.form_field(form.alcohol, class='form-control') }}
+						</div>
+						<div class="form-group col-md-6">
+							{{ wtf.form_field(form.malic_acid, class='form-control') }}
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="form-group col-md-6">
+							{{ wtf.form_field(form.proanthocyanins, class='form-control') }}
+						</div>
+						<div class="form-group col-md-6">
+							{{ wtf.form_field(form.color, class='form-control') }}
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group col-md-4">
+								{{ wtf.form_field(form.total_phenols, class='form-control') }}
+							</div>
+							<div class="form-group col-md-4">
+								{{ wtf.form_field(form.flavanoids, class='form-control') }}
+							</div>
+							<div class="form-group col-md-4">
+								{{ wtf.form_field(form.nonflav_phenols, class='form-control') }}
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-12">
+							<button type="submit" class="btn btn-success btn-lg">Predizer</button>
+						</div>
+					</div>
+				</div>
+			
+				<div class="col-md-4">
+					<img src="{{ url_for('static', filename=specie+'.jpg') }}" class="w-50 h-50 img-thumbnail">
+					<figcaption class="figure-caption">
+						Vinho tipo {{ specie }}
+					</figcaption>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+{% endblock %}
+
