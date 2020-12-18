@@ -13,7 +13,7 @@ pip install -U -r requirements.txt
 ## Utilização
 
 ```bash
-cd\Sommelier\app
+cd \Sommelier\app
 export FLASK_APP=app.py
 flask run
 ```
